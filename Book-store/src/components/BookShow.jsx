@@ -5,18 +5,18 @@ function BookShow({book,onDelete,onUpdate}) {
     const [visible,setVisible] = useState(false);
 
   const handleClick = ()=>{
-    onDelete(book.id)
+    onDelete(book._id)
   }
   const toggleEdit = ()=>{
     setVisible(!visible)
   }
-  const onUpdateClick = (id,newTitle) =>{
+  const onUpdateClick = (_id,newTitle) =>{
     setVisible(!visible);
-    onUpdate(id,newTitle)
+    onUpdate(_id,newTitle)
   }
   return (
     <div className='book-show'>
-       <img  src={`https://picsum.photos/seed/${book.id}/300/200`}/>
+       <img  src={`https://picsum.photos/seed/${book._id}/300/200`}/>
        <div>
 
      {visible ? <BookEdit onUpdate={onUpdateClick} book={book}/>:<h3>{book.bookName}</h3>}
